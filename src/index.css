@@ -1,0 +1,104 @@
+/* Selbst gehostete Fonts, nur lateinische Subsets (kein Aufruf externer
+   Google-CDN-Server — datenschutzfreundlich und ohne externe Abhängigkeit
+   beim Laden, zugleich deutlich kleiner als der volle Zeichensatz). */
+@import "@fontsource/fraunces/latin-300.css";
+@import "@fontsource/fraunces/latin-400.css";
+@import "@fontsource/fraunces/latin-500.css";
+@import "@fontsource/fraunces/latin-600.css";
+@import "@fontsource/fraunces/latin-400-italic.css";
+@import "@fontsource/fraunces/latin-ext-300.css";
+@import "@fontsource/fraunces/latin-ext-400.css";
+@import "@fontsource/fraunces/latin-ext-500.css";
+@import "@fontsource/fraunces/latin-ext-600.css";
+@import "@fontsource/fraunces/latin-ext-400-italic.css";
+@import "@fontsource/inter/latin-300.css";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-ext-300.css";
+@import "@fontsource/inter/latin-ext-400.css";
+@import "@fontsource/inter/latin-ext-500.css";
+@import "@fontsource/inter/latin-ext-600.css";
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Noto Serif KR", serif;
+  --font-sans: "Inter", "Noto Sans KR", system-ui, sans-serif;
+
+  --color-cream: #f6f1e6;
+  --color-paper: #fbf8f2;
+  --color-ink: #1c1613;
+  --color-charcoal: #2a221d;
+  --color-terracotta: #a85332;
+  --color-terracotta-dark: #7f3d24;
+  --color-clay: #7c2a1d;
+  --color-gold: #b8974f;
+  --color-line: #ded3c2;
+
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.25s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink antialiased;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+
+/* Utility: reveal-on-scroll base state (JS toggles .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Thin decorative divider used across sections */
+.hr-hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-line) 20%, var(--color-line) 80%, transparent);
+}
+
+/* Custom scrollbar for a more premium feel (webkit only, progressive enhancement) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-terracotta);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream);
+}
