@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { menu } from '../data/restaurant.js'
+import { menu, restaurant } from '../data/restaurant.js'
 
 function FoodItem({ item }) {
   return (
@@ -55,6 +55,7 @@ export default function Menu() {
           <h2 className="font-display text-balance mt-4 text-4xl font-light leading-[1.1] text-ink sm:text-5xl">
             Was wir servieren
           </h2>
+          <p className="mt-4 text-[13.5px] text-charcoal/70">{restaurant.priceNote}</p>
         </div>
 
         <div data-reveal role="tablist" aria-label="Speisekarte" className="reveal mt-10 flex justify-center gap-2">
@@ -149,6 +150,33 @@ export default function Menu() {
               </div>
             </div>
           )}
+        </div>
+
+        <div
+          data-reveal
+          className="reveal mt-14 flex flex-col items-center gap-5 rounded-2xl border border-terracotta/25 bg-cream px-6 py-10 text-center sm:px-10"
+        >
+          <p className="font-display text-2xl text-ink">Der Tisch ist schnell gedeckt.</p>
+          <p className="max-w-sm text-[14.5px] text-charcoal/70">
+            Reservieren Sie telefonisch oder per Instagram-Nachricht — wir melden uns umgehend
+            zurück.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={restaurant.phoneHref}
+              className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-cream transition-colors hover:bg-terracotta-dark"
+            >
+              Anrufen · {restaurant.phoneDisplay}
+            </a>
+            <a
+              href={restaurant.instagram.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta transition-colors hover:bg-terracotta hover:text-cream"
+            >
+              Instagram-DM
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -24,15 +24,37 @@ export const restaurant = {
     url: 'https://www.instagram.com/sogum_ffm/',
   },
 
+  // WhatsApp wurde vom Kunden nicht angegeben und konnte auch öffentlich
+  // nicht verifiziert werden — bewusst leer gelassen statt erfunden.
+  // Struktur ist vorbereitet: sobald eine Nummer vorliegt, hier eintragen
+  // (Format: 'https://wa.me/49...') und die Komponenten (Hero, Navbar,
+  // MobileReserveBar, VisitInfo) blenden den Button automatisch ein.
+  whatsappUrl: null,
+
   hours: [
     { day: 'Montag – Samstag', time: '11:30 – 14:30 Uhr' },
     { day: 'Montag – Samstag', time: '17:30 – 21:00 Uhr' },
     { day: 'Sonntag', time: 'Ruhetag' },
   ],
 
+  // Maschinenlesbare Version derselben Öffnungszeiten (0 = Sonntag … 6 =
+  // Samstag), für den Live-Geöffnet-Status und dieselbe Quelle wie das
+  // JSON-LD-Markup. Uhrzeiten in Minuten seit Mitternacht, Frankfurter Zeit.
+  openingHours: [
+    { days: [1, 2, 3, 4, 5, 6], ranges: [[690, 870], [1050, 1260]] }, // 11:30–14:30 & 17:30–21:00
+  ],
+
   owners: 'Jinseok Oh & Daejin Kim',
 
   priceNote: 'Beilagen ab 2,50 € · Hauptgerichte 12–20 € · Gerichte zum Teilen 12–30 €',
+
+  // Reale Google-Rezension aus dem vom Kunden bereitgestellten Material
+  // (5-Sterne-Bewertung von Minhee Choi, mit Fotos von Fassade & Gomtang).
+  // Kein aggregierter Google-Gesamtwert, da dieser nicht verifiziert vorliegt.
+  googleReview: {
+    rating: 5,
+    author: 'Minhee Choi',
+  },
 }
 
 // Signature-/Aushängeschilder-Gerichte für die Startseite

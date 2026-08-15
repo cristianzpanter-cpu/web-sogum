@@ -1,5 +1,6 @@
 import images from '../lib/images.js'
 import { restaurant } from '../data/restaurant.js'
+import OpenBadge from './OpenBadge.jsx'
 
 export default function FinalCTA() {
   return (
@@ -24,7 +25,10 @@ export default function FinalCTA() {
           Wir freuen uns auf Ihren Besuch — rufen Sie uns an oder schreiben Sie uns über
           Instagram.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-5 flex justify-center">
+          <OpenBadge tone="dark" />
+        </div>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href={restaurant.phoneHref}
             className="inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:bg-terracotta-dark"

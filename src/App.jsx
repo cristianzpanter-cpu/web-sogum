@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
+import TrustBar from './components/TrustBar.jsx'
 import About from './components/About.jsx'
 import SignatureDishes from './components/SignatureDishes.jsx'
 import Gallery from './components/Gallery.jsx'
@@ -25,6 +26,7 @@ export default function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <TrustBar />
         <About />
         <SignatureDishes />
         <Gallery />

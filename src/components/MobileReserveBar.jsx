@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { restaurant } from '../data/restaurant.js'
+import useOpenStatus from '../hooks/useOpenStatus.js'
 
 // Fixe Reservierungsleiste für kleine Bildschirme: die wichtigste
 // Conversion-Aktion (anrufen) bleibt jederzeit in Daumenreichweite, ohne
@@ -7,6 +8,7 @@ import { restaurant } from '../data/restaurant.js'
 // verlassen wurde.
 export default function MobileReserveBar() {
   const [visible, setVisible] = useState(false)
+  const { open } = useOpenStatus()
 
   useEffect(() => {
     const hero = document.getElementById('top')
@@ -30,10 +32,29 @@ export default function MobileReserveBar() {
         <a
           href={restaurant.phoneHref}
           tabIndex={visible ? 0 : -1}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-terracotta py-3 text-[13px] font-medium uppercase tracking-[0.12em] text-cream transition-colors hover:bg-terracotta-dark"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-terracotta py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream transition-colors hover:bg-terracotta-dark"
         >
-          Tisch reservieren
+          <span className="relative flex h-1.5 w-1.5 shrink-0">
+            {open && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-70" />}
+            <span className={`relative inline-flex h-1.5 w-1.5 rounded-full ${open ? 'bg-emerald-300' : 'bg-cream/50'}`} />
+          </span>
+          Anrufen · {restaurant.phoneDisplay}
         </a>
+        {restaurant.whatsappUrl && (
+          <a
+            href={restaurant.whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            tabIndex={visible ? 0 : -1}
+            aria-label="SOGUM auf WhatsApp"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-colors hover:border-terracotta hover:text-terracotta"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <path d="M4 20l1.3-3.9A7.9 7.9 0 1 1 8.9 19L4 20Z" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M8.5 9.7c0 3.4 2.9 6.3 6.3 6.3" strokeLinecap="round" />
+            </svg>
+          </a>
+        )}
         <a
           href={`${restaurant.instagram.url}`}
           target="_blank"

@@ -67,6 +67,13 @@ export default function Footer() {
                   {restaurant.instagram.handle}
                 </a>
               </li>
+              {restaurant.whatsappUrl && (
+                <li>
+                  <a href={restaurant.whatsappUrl} target="_blank" rel="noreferrer" className="transition-colors hover:text-gold">
+                    WhatsApp
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

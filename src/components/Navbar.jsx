@@ -107,7 +107,8 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         role="dialog"
-        aria-modal="true"
+        aria-modal={open}
+        aria-hidden={!open}
         aria-label="Hauptmenü"
         className={`fixed inset-0 top-0 h-[100dvh] bg-cream transition-opacity duration-300 lg:hidden ${
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
