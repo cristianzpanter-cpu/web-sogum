@@ -1,5 +1,5 @@
 import images from '../lib/images.js'
-import { signatureDishes } from '../data/restaurant.js'
+import { signatureDishes, galleryImages } from '../data/restaurant.js'
 
 export default function SignatureDishes() {
   return (
@@ -25,7 +25,7 @@ export default function SignatureDishes() {
               <div className="relative aspect-[5/4] overflow-hidden rounded-sm">
                 <img
                   src={images[dish.image]}
-                  alt={dish.name}
+                  alt={galleryImages.find((g) => g.image === dish.image)?.alt ?? dish.name}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   loading="lazy"
                 />

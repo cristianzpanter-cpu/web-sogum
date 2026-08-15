@@ -71,7 +71,7 @@ export default function Menu() {
               aria-selected={tab === t.id}
               aria-controls={`panel-${t.id}`}
               onClick={() => setTab(t.id)}
-              className={`rounded-full px-6 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors ${
+              className={`rounded-full px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors ${
                 tab === t.id ? 'bg-terracotta text-cream' : 'bg-transparent text-charcoal/70 hover:text-ink'
               }`}
             >
@@ -121,7 +121,7 @@ export default function Menu() {
             onClick={() => setLegendOpen((v) => !v)}
             aria-expanded={legendOpen}
             aria-controls="allergen-legend"
-            className="text-[13px] uppercase tracking-[0.14em] text-charcoal/70 underline decoration-line underline-offset-4 transition-colors hover:text-terracotta"
+            className="inline-block py-2.5 text-[13px] uppercase tracking-[0.14em] text-charcoal/70 underline decoration-line underline-offset-4 transition-colors hover:text-terracotta"
           >
             {legendOpen ? 'Allergen-Legende ausblenden' : 'Allergen- & Zusatzstoff-Legende anzeigen'}
           </button>
@@ -164,7 +164,7 @@ export default function Menu() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href={restaurant.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-cream transition-colors hover:bg-terracotta-dark"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-terracotta px-5 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream transition-colors hover:bg-terracotta-dark sm:px-6 sm:tracking-[0.14em]"
             >
               Anrufen · {restaurant.phoneDisplay}
             </a>

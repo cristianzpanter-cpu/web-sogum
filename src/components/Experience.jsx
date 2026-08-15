@@ -31,7 +31,7 @@ export default function Experience() {
             <h2 className="font-display text-balance mt-4 text-4xl font-light leading-[1.1] text-ink sm:text-5xl">
               Hell, warm — und ganz auf das Essen konzentriert
             </h2>
-            <div className="mt-7 space-y-5 text-[15.5px] leading-relaxed text-charcoal/85">
+            <div className="mt-7 max-w-2xl space-y-5 text-[15.5px] leading-relaxed text-charcoal/85 lg:max-w-none">
               <p>
                 Hinter der denkmalgeschützten Sandsteinfassade im Nordend liegt ein Innenraum,
                 der bewusst zurückhaltend gestaltet ist: helles Holz, klare Linien, warmes Licht —

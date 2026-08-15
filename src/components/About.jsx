@@ -12,7 +12,7 @@ export default function About() {
           <h2 className="font-display mt-4 text-4xl font-light leading-[1.1] text-ink sm:text-5xl">
             {restaurant.meaningNote}
           </h2>
-          <div className="mt-7 space-y-5 text-[15.5px] leading-relaxed text-charcoal/85">
+          <div className="mt-7 max-w-2xl space-y-5 text-[15.5px] leading-relaxed text-charcoal/85 lg:max-w-none">
             <p>
               Bei SOGUM verfeinern und entwickeln wir traditionelle koreanische Gerichte mit
               regionalen Zutaten weiter — ohne dabei ihre Authentizität und koreanischen Wurzeln

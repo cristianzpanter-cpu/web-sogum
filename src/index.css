@@ -1,24 +1,18 @@
 /* Selbst gehostete Fonts, nur lateinische Subsets (kein Aufruf externer
    Google-CDN-Server — datenschutzfreundlich und ohne externe Abhängigkeit
-   beim Laden, zugleich deutlich kleiner als der volle Zeichensatz). */
+   beim Laden) und nur die Schnitte, die im Code tatsächlich verwendet
+   werden: Fraunces 300/400 (+ 400 kursiv) für Überschriften, Inter
+   400/500 für Fließtext und Labels. Alles andere wäre totes Gewicht. */
 @import "@fontsource/fraunces/latin-300.css";
 @import "@fontsource/fraunces/latin-400.css";
-@import "@fontsource/fraunces/latin-500.css";
-@import "@fontsource/fraunces/latin-600.css";
 @import "@fontsource/fraunces/latin-400-italic.css";
 @import "@fontsource/fraunces/latin-ext-300.css";
 @import "@fontsource/fraunces/latin-ext-400.css";
-@import "@fontsource/fraunces/latin-ext-500.css";
-@import "@fontsource/fraunces/latin-ext-600.css";
 @import "@fontsource/fraunces/latin-ext-400-italic.css";
-@import "@fontsource/inter/latin-300.css";
 @import "@fontsource/inter/latin-400.css";
 @import "@fontsource/inter/latin-500.css";
-@import "@fontsource/inter/latin-600.css";
-@import "@fontsource/inter/latin-ext-300.css";
 @import "@fontsource/inter/latin-ext-400.css";
 @import "@fontsource/inter/latin-ext-500.css";
-@import "@fontsource/inter/latin-ext-600.css";
 
 @import "tailwindcss";
 

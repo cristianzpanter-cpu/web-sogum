@@ -85,7 +85,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`relative z-10 grid h-9 w-9 place-items-center lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
+          className={`relative z-10 -mr-2.5 grid h-11 w-11 place-items-center lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
           aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={open}
           aria-controls="mobile-menu"

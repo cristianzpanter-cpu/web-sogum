@@ -1,4 +1,5 @@
 import { restaurant } from '../data/restaurant.js'
+import { MapPinIcon } from './icons.jsx'
 
 function Star({ filled = true }) {
   return (
@@ -35,13 +36,15 @@ export default function TrustBar() {
 
         <span className="hidden h-4 w-px bg-line sm:block" aria-hidden="true" />
 
-        <span className="flex items-center gap-1.5">
-          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" />
-            <circle cx="12" cy="9.5" r="2.3" />
-          </svg>
+        <a
+          href={restaurant.address.mapsLink}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-1.5 transition-colors hover:text-terracotta"
+        >
+          <MapPinIcon className="h-4 w-4 shrink-0" />
           {restaurant.address.street}, Frankfurt-{restaurant.address.district}
-        </span>
+        </a>
 
         <span className="hidden h-4 w-px bg-line sm:block" aria-hidden="true" />
 

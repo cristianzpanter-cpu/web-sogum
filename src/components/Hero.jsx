@@ -2,12 +2,15 @@ import images from '../lib/images.js'
 import { restaurant } from '../data/restaurant.js'
 import { LogoMark } from './Logo.jsx'
 import OpenBadge from './OpenBadge.jsx'
+import { PhoneIcon } from './icons.jsx'
 
 export default function Hero() {
   return (
     <section id="top" className="relative flex h-[100svh] min-h-[680px] w-full items-end overflow-hidden bg-ink">
       <img
         src={images['facade-day']}
+        srcSet={`${images['facade-day-750']} 750w, ${images['facade-day']} 1080w`}
+        sizes="100vw"
         alt="Sandsteinfassade und Eingang von SOGUM in der Glauburgstraße, Frankfurt"
         className="absolute inset-0 h-full w-full object-cover object-[68%_30%]"
         fetchPriority="high"
@@ -40,13 +43,7 @@ export default function Hero() {
               href={restaurant.phoneHref}
               className="inline-flex items-center gap-2.5 rounded-full bg-terracotta px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:bg-terracotta-dark"
             >
-              <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 5c0-.55.45-1 1-1h2.6c.5 0 .92.36 1 .85l.7 4.1a1 1 0 0 1-.5 1.05l-1.7 1c1 2.2 2.7 3.9 4.9 4.9l1-1.7a1 1 0 0 1 1.05-.5l4.1.7c.5.08.85.5.85 1V18c0 .55-.45 1-1 1h-1.5C9.6 19 5 14.4 5 8.5V7"
-                />
-              </svg>
+              <PhoneIcon className="h-4 w-4 shrink-0" />
               Tisch reservieren
             </a>
             <a
