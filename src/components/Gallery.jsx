@@ -15,7 +15,7 @@ const SPANS = [
   'sm:col-span-1 sm:row-span-1',
   'sm:col-span-2 sm:row-span-1',
   'sm:col-span-1 sm:row-span-1',
-  'sm:col-span-1 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-1',
 ]
 
 export default function Gallery() {
@@ -66,7 +66,7 @@ export default function Gallery() {
               type="button"
               data-reveal
               onClick={() => setActiveIndex(i)}
-              className={`reveal group relative overflow-hidden rounded-sm ${SPANS[i % SPANS.length]}`}
+              className={`reveal group relative overflow-hidden rounded-sm shadow-[0_0_0_rgba(0,0,0,0)] transition-shadow duration-500 hover:z-10 hover:shadow-[0_20px_40px_-14px_rgba(0,0,0,0.4)] ${SPANS[i % SPANS.length]}`}
               style={{ transitionDelay: `${(i % 4) * 90}ms` }}
               aria-label={`${item.alt} — vergrößern`}
             >

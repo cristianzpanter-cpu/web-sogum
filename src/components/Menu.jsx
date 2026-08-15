@@ -154,7 +154,7 @@ export default function Menu() {
 
         <div
           data-reveal
-          className="reveal mt-14 flex flex-col items-center gap-5 rounded-2xl border border-terracotta/25 bg-cream px-6 py-10 text-center sm:px-10"
+          className="reveal mt-14 flex flex-col items-center gap-5 rounded-sm border border-terracotta/25 bg-cream px-6 py-10 text-center sm:px-10"
         >
           <p className="font-display text-2xl text-ink">Der Tisch ist schnell gedeckt.</p>
           <p className="max-w-sm text-[14.5px] text-charcoal/70">
@@ -164,7 +164,7 @@ export default function Menu() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href={restaurant.phoneHref}
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-terracotta px-5 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream transition-colors hover:bg-terracotta-dark sm:px-6 sm:tracking-[0.14em]"
+              className="lift-on-hover inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-terracotta px-5 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream hover:bg-terracotta-dark sm:px-6 sm:tracking-[0.14em]"
             >
               Anrufen · {restaurant.phoneDisplay}
             </a>
@@ -172,7 +172,7 @@ export default function Menu() {
               href={restaurant.instagram.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta transition-colors hover:bg-terracotta hover:text-cream"
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta hover:bg-terracotta hover:text-cream"
             >
               Instagram-DM
             </a>

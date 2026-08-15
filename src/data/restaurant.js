@@ -4,7 +4,7 @@
 
 export const restaurant = {
   name: 'SOGUM',
-  claim: 'Koreanische Küche',
+  claim: 'Koreanisches Restaurant',
   tagline: 'Wärme in jeder Schale',
   meaningNote: '„Sogum“ bedeutet Salz auf Koreanisch.',
 

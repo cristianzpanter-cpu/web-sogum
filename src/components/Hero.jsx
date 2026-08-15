@@ -3,18 +3,23 @@ import { restaurant } from '../data/restaurant.js'
 import { LogoMark } from './Logo.jsx'
 import OpenBadge from './OpenBadge.jsx'
 import { PhoneIcon } from './icons.jsx'
+import useParallax from '../hooks/useParallax.js'
 
 export default function Hero() {
+  const parallaxRef = useParallax(0.12, 36)
+
   return (
     <section id="top" className="relative flex h-[100svh] min-h-[680px] w-full items-end overflow-hidden bg-ink">
-      <img
-        src={images['facade-day']}
-        srcSet={`${images['facade-day-750']} 750w, ${images['facade-day']} 1080w`}
-        sizes="100vw"
-        alt="Sandsteinfassade und Eingang von SOGUM in der Glauburgstraße, Frankfurt"
-        className="absolute inset-0 h-full w-full object-cover object-[68%_30%]"
-        fetchPriority="high"
-      />
+      <div ref={parallaxRef} className="absolute inset-x-0 -top-[8%] h-[116%] will-change-transform">
+        <img
+          src={images['facade-day']}
+          srcSet={`${images['facade-day-750']} 750w, ${images['facade-day']} 1080w`}
+          sizes="100vw"
+          alt="Sandsteinfassade und Eingang von SOGUM in der Glauburgstraße, Frankfurt"
+          className="animate-kenburns h-full w-full object-cover object-[68%_30%]"
+          fetchPriority="high"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/25" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-transparent to-transparent" />
 
@@ -41,14 +46,14 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href={restaurant.phoneHref}
-              className="inline-flex items-center gap-2.5 rounded-full bg-terracotta px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:bg-terracotta-dark"
+              className="lift-on-hover inline-flex items-center gap-2.5 rounded-full bg-terracotta px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:bg-terracotta-dark"
             >
               <PhoneIcon className="h-4 w-4 shrink-0" />
               Tisch reservieren
             </a>
             <a
               href="#speisekarte"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/50 px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:border-cream hover:bg-cream/10"
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/50 px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
             >
               Speisekarte ansehen
             </a>
@@ -89,7 +94,7 @@ export default function Hero() {
       <a
         href="#ueber-uns"
         aria-label="Zur nächsten Sektion scrollen"
-        className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-cream/70 sm:flex"
+        className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-cream/70 transition-colors hover:text-cream sm:flex"
       >
         <span className="text-[11px] uppercase tracking-[0.28em]">Entdecken</span>
         <span className="h-9 w-px animate-pulse bg-cream/60" />

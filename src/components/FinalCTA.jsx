@@ -31,7 +31,7 @@ export default function FinalCTA() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href={restaurant.phoneHref}
-            className="inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:bg-terracotta-dark"
+            className="lift-on-hover inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:bg-terracotta-dark"
           >
             {restaurant.phoneDisplay}
           </a>
@@ -39,7 +39,7 @@ export default function FinalCTA() {
             href={restaurant.instagram.url}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-cream/40 px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-colors hover:border-cream hover:bg-cream/10"
+            className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/40 px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
           >
             {restaurant.instagram.handle}
           </a>

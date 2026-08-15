@@ -21,7 +21,7 @@ export default function VisitInfo() {
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <a
               href={restaurant.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-cream transition-colors hover:bg-terracotta-dark"
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-cream hover:bg-terracotta-dark"
             >
               Anrufen · {restaurant.phoneDisplay}
             </a>

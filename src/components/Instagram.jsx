@@ -20,7 +20,7 @@ export default function InstagramBand() {
             href={restaurant.instagram.url}
             target="_blank"
             rel="noreferrer"
-            className="mt-7 inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta transition-colors hover:bg-terracotta hover:text-cream"
+            className="lift-on-hover mt-7 inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta hover:bg-terracotta hover:text-cream"
           >
             Auf Instagram öffnen
           </a>

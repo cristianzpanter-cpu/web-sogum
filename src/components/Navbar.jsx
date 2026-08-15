@@ -61,7 +61,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`relative pb-1 transition-colors ${solid ? 'hover:text-terracotta' : 'hover:text-gold'}`}
+                className={`link-underline pb-1 ${solid ? 'hover:text-terracotta' : 'hover:text-gold'}`}
               >
                 {link.label}
               </a>
@@ -72,7 +72,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href={restaurant.phoneHref}
-            className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] transition-all duration-300 ${
+            className={`lift-on-hover inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] ${
               solid
                 ? 'border-terracotta text-terracotta hover:bg-terracotta hover:text-cream'
                 : 'border-cream/60 text-cream hover:bg-cream hover:text-ink'
@@ -110,14 +110,20 @@ export default function Navbar() {
         aria-modal={open}
         aria-hidden={!open}
         aria-label="Hauptmenü"
-        className={`fixed inset-0 top-0 h-[100dvh] bg-cream transition-opacity duration-300 lg:hidden ${
-          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        className={`fixed inset-0 top-0 h-[100dvh] bg-cream transition-all duration-300 lg:hidden ${
+          open ? 'pointer-events-auto scale-100 opacity-100' : 'pointer-events-none scale-[1.02] opacity-0'
         }`}
       >
         <div className="flex h-full flex-col justify-center px-8 pb-20">
           <ul className="flex flex-col gap-1 font-display text-3xl">
             {LINKS.map((link, i) => (
-              <li key={link.href}>
+              <li
+                key={link.href}
+                className={`overflow-hidden transition-all duration-500 ease-out ${
+                  open ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+                }`}
+                style={{ transitionDelay: open ? `${i * 55 + 90}ms` : '0ms' }}
+              >
                 <a
                   ref={i === 0 ? firstLinkRef : null}
                   href={link.href}
@@ -130,11 +136,16 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 space-y-4">
+          <div
+            className={`mt-10 space-y-4 transition-all duration-500 ease-out ${
+              open ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+            }`}
+            style={{ transitionDelay: open ? `${LINKS.length * 55 + 90}ms` : '0ms' }}
+          >
             <a
               href={restaurant.phoneHref}
               tabIndex={open ? 0 : -1}
-              className="block rounded-full bg-terracotta py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-cream"
+              className="lift-on-hover block rounded-full bg-terracotta py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-cream"
             >
               Tisch reservieren — {restaurant.phoneDisplay}
             </a>

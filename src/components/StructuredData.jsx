@@ -15,7 +15,7 @@ export default function StructuredData() {
       '@type': 'Restaurant',
       name: restaurant.name,
       description:
-        'Koreanische Küche im Frankfurter Nordend — traditionelle koreanische Gerichte, neu gedacht mit regionalen Zutaten.',
+        'Koreanisches Restaurant im Frankfurter Nordend — traditionelle koreanische Küche, neu gedacht mit regionalen Zutaten.',
       image: [
         absolute(images['facade-day']),
         absolute(images['dish-galbi-hero']),
