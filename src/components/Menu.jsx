@@ -7,7 +7,7 @@ function FoodItem({ item }) {
       <div className="sm:max-w-[70%]">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h4 className="font-display text-xl text-ink">{item.name}</h4>
-          {item.korean && <span className="text-sm text-charcoal/45">{item.korean}</span>}
+          {item.korean && <span className="text-sm text-charcoal/70">{item.korean}</span>}
           {item.tag && (
             <span className="rounded-full border border-terracotta/40 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.1em] text-terracotta">
               {item.tag}
@@ -17,7 +17,7 @@ function FoodItem({ item }) {
         {item.description && (
           <p className="mt-1.5 text-[14.5px] leading-relaxed text-charcoal/70">{item.description}</p>
         )}
-        <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-charcoal/40">
+        <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-charcoal/70">
           {item.allergens && <span>Allergene: {item.allergens}</span>}
           {item.note && <span>{item.note}</span>}
         </div>
@@ -34,7 +34,7 @@ function DrinkItem({ item }) {
     <div className="flex items-baseline justify-between gap-6 border-b border-line py-3.5 last:border-b-0">
       <div>
         <p className="text-[15px] text-ink">{item.name}</p>
-        {item.note && <p className="text-[12.5px] text-charcoal/45">{item.note}</p>}
+        {item.note && <p className="text-[12.5px] text-charcoal/70">{item.note}</p>}
       </div>
       <span className="shrink-0 whitespace-nowrap font-display text-terracotta">{item.price}</span>
     </div>
@@ -57,7 +57,7 @@ export default function Menu() {
           </h2>
         </div>
 
-        <div data-reveal className="reveal mt-10 flex justify-center gap-2">
+        <div data-reveal role="tablist" aria-label="Speisekarte" className="reveal mt-10 flex justify-center gap-2">
           {[
             { id: 'speisen', label: 'Speisen' },
             { id: 'getraenke', label: 'Getränke' },
@@ -65,9 +65,13 @@ export default function Menu() {
             <button
               key={t.id}
               type="button"
+              id={`tab-${t.id}`}
+              role="tab"
+              aria-selected={tab === t.id}
+              aria-controls={`panel-${t.id}`}
               onClick={() => setTab(t.id)}
               className={`rounded-full px-6 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors ${
-                tab === t.id ? 'bg-terracotta text-cream' : 'bg-transparent text-charcoal/60 hover:text-ink'
+                tab === t.id ? 'bg-terracotta text-cream' : 'bg-transparent text-charcoal/70 hover:text-ink'
               }`}
             >
               {t.label}
@@ -76,12 +80,12 @@ export default function Menu() {
         </div>
 
         {tab === 'speisen' && (
-          <div className="mt-14 space-y-14">
+          <div id="panel-speisen" role="tabpanel" aria-labelledby="tab-speisen" className="mt-14 space-y-14">
             {menu.categories.map((category) => (
               <div key={category.title} data-reveal className="reveal">
                 <div className="mb-1 flex items-baseline gap-3">
                   <h3 className="font-display text-2xl text-ink">{category.title}</h3>
-                  {category.korean && <span className="text-sm text-charcoal/40">{category.korean}</span>}
+                  {category.korean && <span className="text-sm text-charcoal/70">{category.korean}</span>}
                 </div>
                 <div className="hr-hairline mb-2 mt-3" />
                 <div>
@@ -95,7 +99,7 @@ export default function Menu() {
         )}
 
         {tab === 'getraenke' && (
-          <div className="mt-14 space-y-12">
+          <div id="panel-getraenke" role="tabpanel" aria-labelledby="tab-getraenke" className="mt-14 space-y-12">
             {menu.drinks.map((category) => (
               <div key={category.title} data-reveal className="reveal">
                 <h3 className="font-display text-2xl text-ink">{category.title}</h3>
@@ -114,15 +118,17 @@ export default function Menu() {
           <button
             type="button"
             onClick={() => setLegendOpen((v) => !v)}
-            className="text-[13px] uppercase tracking-[0.14em] text-charcoal/60 underline decoration-line underline-offset-4 transition-colors hover:text-terracotta"
+            aria-expanded={legendOpen}
+            aria-controls="allergen-legend"
+            className="text-[13px] uppercase tracking-[0.14em] text-charcoal/70 underline decoration-line underline-offset-4 transition-colors hover:text-terracotta"
           >
             {legendOpen ? 'Allergen-Legende ausblenden' : 'Allergen- & Zusatzstoff-Legende anzeigen'}
           </button>
 
           {legendOpen && (
-            <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-6 text-left sm:grid-cols-2">
+            <div id="allergen-legend" className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-6 text-left sm:grid-cols-2">
               <div>
-                <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal/50">
+                <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal/70">
                   Deklarationspflichtige Allergene
                 </p>
                 <ul className="space-y-1 text-[13px] text-charcoal/70">
@@ -132,7 +138,7 @@ export default function Menu() {
                 </ul>
               </div>
               <div>
-                <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal/50">
+                <p className="mb-2 text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal/70">
                   Deklarationspflichtige Zusatzstoffe
                 </p>
                 <ul className="space-y-1 text-[13px] text-charcoal/70">

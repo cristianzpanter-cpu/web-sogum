@@ -9,6 +9,8 @@ import VisitInfo from './components/VisitInfo.jsx'
 import InstagramBand from './components/Instagram.jsx'
 import FinalCTA from './components/FinalCTA.jsx'
 import Footer from './components/Footer.jsx'
+import StructuredData from './components/StructuredData.jsx'
+import MobileReserveBar from './components/MobileReserveBar.jsx'
 import useReveal from './hooks/useReveal.js'
 
 export default function App() {
@@ -16,8 +18,12 @@ export default function App() {
 
   return (
     <div ref={scopeRef}>
+      <StructuredData />
+      <a href="#main-content" className="skip-link">
+        Zum Inhalt springen
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <SignatureDishes />
@@ -29,6 +35,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <MobileReserveBar />
     </div>
   )
 }

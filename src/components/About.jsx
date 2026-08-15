@@ -37,7 +37,7 @@ export default function About() {
               loading="lazy"
             />
           </div>
-          <p className="mt-4 text-[13px] uppercase tracking-[0.18em] text-charcoal/50">
+          <p className="mt-4 text-[13px] uppercase tracking-[0.18em] text-charcoal/70">
             Jokpyeon — koreanische Schweinesülze, fein aufgeschnitten
           </p>
         </div>

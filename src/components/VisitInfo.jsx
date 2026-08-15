@@ -20,7 +20,7 @@ export default function VisitInfo() {
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
           <div data-reveal className="reveal space-y-10 lg:col-span-5">
             <div>
-              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/50">
+              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/55">
                 Öffnungszeiten
               </h3>
               <dl className="mt-4 space-y-2.5">
@@ -37,7 +37,7 @@ export default function VisitInfo() {
             </div>
 
             <div>
-              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/50">
+              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/55">
                 Adresse
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
@@ -51,18 +51,18 @@ export default function VisitInfo() {
                 href={restaurant.address.mapsLink}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-block text-[13px] uppercase tracking-[0.12em] text-terracotta underline decoration-terracotta/40 underline-offset-4 hover:text-gold"
+                className="mt-3 inline-block text-[13px] uppercase tracking-[0.12em] text-gold underline decoration-gold/40 underline-offset-4 hover:text-cream"
               >
                 Route planen
               </a>
             </div>
 
             <div>
-              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/50">
+              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/55">
                 Kontakt
               </h3>
               <p className="mt-4 text-[15px] text-cream/85">
-                <a href={restaurant.phoneHref} className="hover:text-terracotta">
+                <a href={restaurant.phoneHref} className="hover:text-gold">
                   {restaurant.phoneDisplay}
                 </a>
               </p>
@@ -71,19 +71,19 @@ export default function VisitInfo() {
                   href={restaurant.instagram.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-terracotta"
+                  className="hover:text-gold"
                 >
                   {restaurant.instagram.handle}
                 </a>
               </p>
-              <p className="mt-4 text-[13px] leading-relaxed text-cream/40">
+              <p className="mt-4 text-[13px] leading-relaxed text-cream/55">
                 Online-Reservierung folgt in Kürze — aktuell nehmen wir Tischreservierungen
                 telefonisch oder per Instagram-Nachricht entgegen.
               </p>
             </div>
 
             <div>
-              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/50">
+              <h3 className="text-[13px] font-medium uppercase tracking-[0.18em] text-cream/55">
                 Preisrahmen
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-cream/85">{restaurant.priceNote}</p>

@@ -64,9 +64,45 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Platz für die fixe mobile Reservierungsleiste (nur < lg, siehe
+   MobileReserveBar.jsx), damit sie nie Fußzeilen-Inhalte verdeckt. */
+@media (max-width: 63.999rem) {
+  body {
+    padding-bottom: 4.75rem;
+  }
+}
+
 ::selection {
   background: var(--color-terracotta);
   color: var(--color-cream);
+}
+
+/* Sichtbarer Fokusring für Tastaturnavigation, konsistent im Corporate
+   Design statt des Browser-Standards. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 200;
+  top: 0.75rem;
+  left: 0.75rem;
+  transform: translateY(-150%);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: transform 0.25s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Utility: reveal-on-scroll base state (JS toggles .is-visible) */
@@ -78,6 +114,25 @@ body {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .text-balance {

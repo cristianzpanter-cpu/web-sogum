@@ -33,7 +33,7 @@ export default function SignatureDishes() {
               <div className="mt-5 flex items-start justify-between gap-4">
                 <div>
                   <h3 className="font-display text-2xl font-normal text-cream">{dish.name}</h3>
-                  <p className="mt-0.5 text-sm tracking-wide text-cream/45">{dish.korean}</p>
+                  <p className="mt-0.5 text-sm tracking-wide text-cream/55">{dish.korean}</p>
                 </div>
                 <span className="font-display shrink-0 text-lg text-gold">{dish.price}</span>
               </div>

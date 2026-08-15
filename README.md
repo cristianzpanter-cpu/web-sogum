@@ -40,10 +40,34 @@ Alle Texte, Preise und Kontaktdaten liegen zentral in
 Neue Fotos: als `.webp` in `src/assets/img/` ablegen und in
 `src/data/restaurant.js` (z. B. `galleryImages`) referenzieren.
 
+## SEO, Performance & Barrierefreiheit
+
+- **Strukturierte Daten**: `StructuredData.jsx` injiziert Schema.org
+  `Restaurant`-JSON-LD zur Laufzeit (Adresse, Telefon, Öffnungszeiten,
+  Preisklasse, Bilder) direkt aus `restaurant.js`.
+- **Social-Vorschau**: Open-Graph-/Twitter-Card-Tags in `index.html`,
+  eigens gerendertes `public/og-image.jpg` (1200×630) im Corporate Design.
+- **Icons/Manifest**: `favicon.svg`, `icon-180/192/512.png`,
+  `site.webmanifest` — installierbar als Web-App.
+- **robots.txt** / **sitemap.xml** in `public/`.
+- **Barrierefreiheit**: "Zum Inhalt springen"-Link, sichtbarer
+  Fokusring, `prefers-reduced-motion` respektiert, Tabs/Legende mit
+  korrekten ARIA-Rollen, alle Textfarben auf WCAG-AA-Kontrast geprüft.
+- **Conversion**: fixe Reservierungsleiste auf Mobilgeräten (erscheint
+  nach dem Hero), großzügiges Vollbild-Mobilmenü.
+
 ## Offene Punkte für den Kunden
 
+- **Domain**: `index.html`, `public/robots.txt` und `public/sitemap.xml`
+  enthalten aktuell die Platzhalter-Domain `https://example.com` (klar
+  markiert). Vor dem Go-Live an drei Stellen durch die echte Domain
+  ersetzen, sonst zeigen Suchmaschinen- und Social-Vorschauen falsche
+  Adressen.
 - Online-Reservierungssystem ist noch nicht angebunden (aktuell Anruf /
   Instagram-DM) — Platzhalter-Hinweis in `VisitInfo.jsx`.
 - Kein offizielles Logo-Bild vorhanden — das Emblem in `Logo.jsx` ist als
   SVG nachgebaut. Bei Erhalt einer Vektor-/Original-Datei einfach
   `LogoMark` ersetzen.
+- `priceRange: "€€"` im JSON-LD (`StructuredData.jsx`) ist aus den
+  Kartenpreisen abgeleitet, keine offizielle Einstufung — bei Bedarf
+  anpassen.

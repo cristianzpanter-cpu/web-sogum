@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  WICHTIG: "https://example.com" ist ein Platzhalter.
+  Bitte durch die endgültige Domain der Seite ersetzen (hier, in robots.txt
+  und in den <link rel="canonical">- / og:url-Tags in index.html).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

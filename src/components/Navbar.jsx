@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Logo from './Logo.jsx'
 import { restaurant } from '../data/restaurant.js'
 
@@ -13,6 +13,7 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const firstLinkRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -23,9 +24,19 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    if (open) firstLinkRef.current?.focus()
     return () => {
       document.body.style.overflow = ''
     }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
   }, [open])
 
   const solid = scrolled || open
@@ -48,7 +59,10 @@ export default function Navbar() {
         <ul className={`hidden items-center gap-9 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors duration-500 lg:flex ${solid ? 'text-charcoal' : 'text-cream/90'}`}>
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="relative pb-1 transition-colors hover:text-terracotta">
+              <a
+                href={link.href}
+                className={`relative pb-1 transition-colors ${solid ? 'hover:text-terracotta' : 'hover:text-gold'}`}
+              >
                 {link.label}
               </a>
             </li>
@@ -71,9 +85,10 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`grid h-9 w-9 place-items-center lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
+          className={`relative z-10 grid h-9 w-9 place-items-center lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
           aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <span className="relative block h-4 w-6">
             <span
@@ -90,30 +105,46 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`grid overflow-hidden bg-cream transition-[grid-template-rows] duration-500 ease-out lg:hidden ${
-          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Hauptmenü"
+        className={`fixed inset-0 top-0 h-[100dvh] bg-cream transition-opacity duration-300 lg:hidden ${
+          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
-        <div className="min-h-0">
-          <ul className="flex flex-col gap-1 px-6 pb-8 pt-2 text-base">
-            {LINKS.map((link) => (
+        <div className="flex h-full flex-col justify-center px-8 pb-20">
+          <ul className="flex flex-col gap-1 font-display text-3xl">
+            {LINKS.map((link, i) => (
               <li key={link.href}>
                 <a
+                  ref={i === 0 ? firstLinkRef : null}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-line py-3.5 uppercase tracking-[0.1em] text-charcoal"
+                  tabIndex={open ? 0 : -1}
+                  className="block border-b border-line py-4 text-charcoal transition-colors hover:text-terracotta"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="px-6 pb-8">
+          <div className="mt-10 space-y-4">
             <a
               href={restaurant.phoneHref}
-              className="block rounded-full bg-terracotta py-3.5 text-center text-sm font-medium uppercase tracking-[0.14em] text-cream"
+              tabIndex={open ? 0 : -1}
+              className="block rounded-full bg-terracotta py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-cream"
             >
-              Tisch reservieren
+              Tisch reservieren — {restaurant.phoneDisplay}
+            </a>
+            <a
+              href={restaurant.instagram.url}
+              target="_blank"
+              rel="noreferrer"
+              tabIndex={open ? 0 : -1}
+              className="block text-center text-[13px] uppercase tracking-[0.14em] text-charcoal/70"
+            >
+              {restaurant.instagram.handle}
             </a>
           </div>
         </div>

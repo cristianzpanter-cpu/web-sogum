@@ -22,13 +22,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/45">
+            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/55">
               Navigation
             </h4>
             <ul className="mt-4 space-y-2.5 text-[14px]">
               {LINKS.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="transition-colors hover:text-terracotta">
+                  <a href={l.href} className="transition-colors hover:text-gold">
                     {l.label}
                   </a>
                 </li>
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/45">
+            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/55">
               Adresse
             </h4>
             <p className="mt-4 text-[14px] leading-relaxed">
@@ -48,12 +48,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/45">
+            <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/55">
               Kontakt
             </h4>
             <ul className="mt-4 space-y-2.5 text-[14px]">
               <li>
-                <a href={restaurant.phoneHref} className="transition-colors hover:text-terracotta">
+                <a href={restaurant.phoneHref} className="transition-colors hover:text-gold">
                   {restaurant.phoneDisplay}
                 </a>
               </li>
@@ -62,7 +62,7 @@ export default function Footer() {
                   href={restaurant.instagram.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-terracotta"
+                  className="transition-colors hover:text-gold"
                 >
                   {restaurant.instagram.handle}
                 </a>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 pt-6 text-[12.5px] text-cream/40 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 pt-6 text-[12.5px] text-cream/55 sm:flex-row">
           <p>© {new Date().getFullYear()} SOGUM · {restaurant.owners}</p>
           <p>Frankfurt am Main</p>
         </div>
