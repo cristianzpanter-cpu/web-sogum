@@ -34,6 +34,22 @@ export default function StructuredData() {
         addressCountry: 'DE',
       },
       sameAs: [restaurant.instagram.url],
+      acceptsReservations: true,
+      potentialAction: {
+        '@type': 'ReserveAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: restaurant.reservationUrl,
+          actionPlatform: [
+            'http://schema.org/DesktopWebPlatform',
+            'http://schema.org/MobileWebPlatform',
+          ],
+        },
+        result: {
+          '@type': 'Reservation',
+          name: 'Tischreservierung bei SOGUM',
+        },
+      },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

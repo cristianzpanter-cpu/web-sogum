@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { restaurant } from '../data/restaurant.js'
 import useOpenStatus from '../hooks/useOpenStatus.js'
-import { InstagramIcon, WhatsAppIcon } from './icons.jsx'
+import { CalendarCheckIcon, WhatsAppIcon } from './icons.jsx'
 
 // Fixe Reservierungsleiste für kleine Bildschirme: die wichtigste
 // Conversion-Aktion (anrufen) bleibt jederzeit in Daumenreichweite, ohne
@@ -54,14 +54,14 @@ export default function MobileReserveBar() {
           </a>
         )}
         <a
-          href={`${restaurant.instagram.url}`}
+          href={restaurant.reservationUrl}
           target="_blank"
           rel="noreferrer"
           tabIndex={visible ? 0 : -1}
-          aria-label="SOGUM auf Instagram"
+          aria-label="Online reservieren"
           className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-colors hover:border-terracotta hover:text-terracotta"
         >
-          <InstagramIcon className="h-5 w-5" />
+          <CalendarCheckIcon className="h-5 w-5" />
         </a>
       </div>
     </div>

@@ -24,6 +24,11 @@ export const restaurant = {
     url: 'https://www.instagram.com/sogum_ffm/',
   },
 
+  // Direkter Online-Reservierungslink (Dish.co). Tracking-Parameter der
+  // Instagram-Bio-Quelle (utm_*, fbclid) bewusst entfernt — auf der
+  // eigenen Website wäre diese Zuordnung falsch.
+  reservationUrl: 'https://reservation.dish.co/shortlink/339496',
+
   // WhatsApp wurde vom Kunden nicht angegeben und konnte auch öffentlich
   // nicht verifiziert werden — bewusst leer gelassen statt erfunden.
   // Struktur ist vorbereitet: sobald eine Nummer vorliegt, hier eintragen

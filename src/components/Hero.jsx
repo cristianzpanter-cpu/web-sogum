@@ -2,7 +2,7 @@ import images from '../lib/images.js'
 import { restaurant } from '../data/restaurant.js'
 import { LogoMark } from './Logo.jsx'
 import OpenBadge from './OpenBadge.jsx'
-import { PhoneIcon } from './icons.jsx'
+import { CalendarCheckIcon } from './icons.jsx'
 import useParallax from '../hooks/useParallax.js'
 
 export default function Hero() {
@@ -45,10 +45,12 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href={restaurant.phoneHref}
+              href={restaurant.reservationUrl}
+              target="_blank"
+              rel="noreferrer"
               className="lift-on-hover inline-flex items-center gap-2.5 rounded-full bg-terracotta px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:bg-terracotta-dark"
             >
-              <PhoneIcon className="h-4 w-4 shrink-0" />
+              <CalendarCheckIcon className="h-4 w-4 shrink-0" />
               Tisch reservieren
             </a>
             <a
@@ -60,18 +62,9 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 text-[13px] text-cream/60">
-            Sofort erreichbar:{' '}
+            Lieber anrufen? Sofort erreichbar:{' '}
             <a href={restaurant.phoneHref} className="text-cream/90 underline decoration-cream/30 underline-offset-4 hover:text-gold">
               {restaurant.phoneDisplay}
-            </a>{' '}
-            · oder per{' '}
-            <a
-              href={restaurant.instagram.url}
-              target="_blank"
-              rel="noreferrer"
-              className="text-cream/90 underline decoration-cream/30 underline-offset-4 hover:text-gold"
-            >
-              Instagram-DM
             </a>
             {restaurant.whatsappUrl && (
               <>

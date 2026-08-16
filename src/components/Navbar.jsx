@@ -71,7 +71,9 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           <a
-            href={restaurant.phoneHref}
+            href={restaurant.reservationUrl}
+            target="_blank"
+            rel="noreferrer"
             className={`lift-on-hover inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-medium uppercase tracking-[0.14em] ${
               solid
                 ? 'border-terracotta text-terracotta hover:bg-terracotta hover:text-cream'
@@ -143,11 +145,20 @@ export default function Navbar() {
             style={{ transitionDelay: open ? `${LINKS.length * 55 + 90}ms` : '0ms' }}
           >
             <a
-              href={restaurant.phoneHref}
+              href={restaurant.reservationUrl}
+              target="_blank"
+              rel="noreferrer"
               tabIndex={open ? 0 : -1}
               className="lift-on-hover block rounded-full bg-terracotta py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-cream"
             >
-              Tisch reservieren — {restaurant.phoneDisplay}
+              Online reservieren
+            </a>
+            <a
+              href={restaurant.phoneHref}
+              tabIndex={open ? 0 : -1}
+              className="lift-on-hover block rounded-full border border-terracotta py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-terracotta"
+            >
+              Anrufen · {restaurant.phoneDisplay}
             </a>
             <a
               href={restaurant.instagram.url}

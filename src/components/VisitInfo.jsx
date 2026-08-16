@@ -20,8 +20,16 @@ export default function VisitInfo() {
 
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <a
-              href={restaurant.phoneHref}
+              href={restaurant.reservationUrl}
+              target="_blank"
+              rel="noreferrer"
               className="lift-on-hover inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-cream hover:bg-terracotta-dark"
+            >
+              Online reservieren
+            </a>
+            <a
+              href={restaurant.phoneHref}
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta hover:bg-terracotta hover:text-cream"
             >
               Anrufen · {restaurant.phoneDisplay}
             </a>
@@ -103,8 +111,16 @@ export default function VisitInfo() {
                 )}
               </div>
               <p className="mt-4 text-[13px] leading-relaxed text-cream/55">
-                Online-Reservierung folgt in Kürze — aktuell nehmen wir Tischreservierungen
-                telefonisch oder per Instagram-Nachricht entgegen.
+                Reservieren Sie{' '}
+                <a
+                  href={restaurant.reservationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-cream"
+                >
+                  bequem online
+                </a>{' '}
+                oder rufen Sie uns direkt an — wir bestätigen umgehend.
               </p>
             </div>
 

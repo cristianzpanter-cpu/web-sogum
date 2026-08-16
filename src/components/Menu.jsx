@@ -158,23 +158,22 @@ export default function Menu() {
         >
           <p className="font-display text-2xl text-ink">Der Tisch ist schnell gedeckt.</p>
           <p className="max-w-sm text-[14.5px] text-charcoal/70">
-            Reservieren Sie telefonisch oder per Instagram-Nachricht — wir melden uns umgehend
-            zurück.
+            Reservieren Sie in wenigen Klicks online oder rufen Sie uns direkt an.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href={restaurant.phoneHref}
-              className="lift-on-hover inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-terracotta px-5 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream hover:bg-terracotta-dark sm:px-6 sm:tracking-[0.14em]"
-            >
-              Anrufen · {restaurant.phoneDisplay}
-            </a>
-            <a
-              href={restaurant.instagram.url}
+              href={restaurant.reservationUrl}
               target="_blank"
               rel="noreferrer"
+              className="lift-on-hover inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-terracotta px-5 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream hover:bg-terracotta-dark sm:px-6 sm:tracking-[0.14em]"
+            >
+              Online reservieren
+            </a>
+            <a
+              href={restaurant.phoneHref}
               className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-terracotta px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] text-terracotta hover:bg-terracotta hover:text-cream"
             >
-              Instagram-DM
+              Anrufen · {restaurant.phoneDisplay}
             </a>
           </div>
         </div>

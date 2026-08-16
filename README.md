@@ -63,8 +63,9 @@ Neue Fotos: als `.webp` in `src/assets/img/` ablegen und in
   markiert). Vor dem Go-Live an drei Stellen durch die echte Domain
   ersetzen, sonst zeigen Suchmaschinen- und Social-Vorschauen falsche
   Adressen.
-- Online-Reservierungssystem ist noch nicht angebunden (aktuell Anruf /
-  Instagram-DM) — Platzhalter-Hinweis in `VisitInfo.jsx`.
+- Online-Reservierung läuft über Dish.co (`reservationUrl` in
+  `restaurant.js`); Instagram-DM wird nirgends mehr als
+  Reservierungsweg beworben, nur noch als Social-Media-Kontakt.
 - Kein offizielles Logo-Bild vorhanden — das Emblem in `Logo.jsx` ist als
   SVG nachgebaut. Bei Erhalt einer Vektor-/Original-Datei einfach
   `LogoMark` ersetzen.

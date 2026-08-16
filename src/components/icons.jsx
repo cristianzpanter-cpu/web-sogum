@@ -33,6 +33,16 @@ export function WhatsAppIcon({ className = 'h-4 w-4' }) {
   )
 }
 
+export function CalendarCheckIcon({ className = 'h-4 w-4' }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
+      <path d="M3.5 9.5h17M8 3v3.2M16 3v3.2" strokeLinecap="round" />
+      <path d="M8.5 13.8l2.1 2.1L15.5 12" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 export function MapPinIcon({ className = 'h-4 w-4' }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">

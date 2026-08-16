@@ -22,26 +22,26 @@ export default function FinalCTA() {
           Reservieren Sie Ihren Platz für ein Stück Korea im Nordend
         </h2>
         <p className="mt-5 text-[15.5px] text-cream/70">
-          Wir freuen uns auf Ihren Besuch — rufen Sie uns an oder schreiben Sie uns über
-          Instagram.
+          Wir freuen uns auf Ihren Besuch — reservieren Sie online oder rufen Sie uns direkt
+          an.
         </p>
         <div className="mt-5 flex justify-center">
           <OpenBadge tone="dark" />
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href={restaurant.phoneHref}
-            className="lift-on-hover inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:bg-terracotta-dark"
-          >
-            {restaurant.phoneDisplay}
-          </a>
-          <a
-            href={restaurant.instagram.url}
+            href={restaurant.reservationUrl}
             target="_blank"
             rel="noreferrer"
+            className="lift-on-hover inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:bg-terracotta-dark"
+          >
+            Online reservieren
+          </a>
+          <a
+            href={restaurant.phoneHref}
             className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/40 px-8 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
           >
-            {restaurant.instagram.handle}
+            {restaurant.phoneDisplay}
           </a>
         </div>
       </div>
