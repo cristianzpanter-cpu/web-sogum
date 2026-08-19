@@ -1,11 +1,12 @@
 import Logo from './Logo.jsx'
+import OpenBadge from './OpenBadge.jsx'
 import { restaurant } from '../data/restaurant.js'
 
 const LINKS = [
   { href: '#ueber-uns', label: 'Über uns' },
   { href: '#kueche', label: 'Küche' },
-  { href: '#speisekarte', label: 'Speisekarte' },
   { href: '#galerie', label: 'Galerie' },
+  { href: '#speisekarte', label: 'Speisekarte' },
   { href: '#besuch', label: 'Besuch' },
 ]
 
@@ -19,6 +20,7 @@ export default function Footer() {
             <p className="mt-4 max-w-[24ch] text-[13.5px] leading-relaxed">
               {restaurant.tagline} — koreanische Küche im Frankfurter Nordend.
             </p>
+            <OpenBadge tone="dark" className="mt-5" />
           </div>
 
           <div>
@@ -38,20 +40,28 @@ export default function Footer() {
 
           <div>
             <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/55">
-              Adresse
+              Öffnungszeiten
             </h4>
-            <p className="mt-4 text-[14px] leading-relaxed">
-              {restaurant.address.street}
-              <br />
-              {restaurant.address.zipCity}
-            </p>
+            <dl className="mt-4 space-y-2 text-[14px]">
+              {restaurant.hours.map((h, i) => (
+                <div key={`${h.day}-${i}`} className="flex justify-between gap-4">
+                  <dt className="text-cream/60">{h.day}</dt>
+                  <dd>{h.time}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <div>
             <h4 className="text-[12px] font-medium uppercase tracking-[0.16em] text-cream/55">
               Kontakt
             </h4>
-            <ul className="mt-4 space-y-2.5 text-[14px]">
+            <p className="mt-4 text-[14px] leading-relaxed">
+              {restaurant.address.street}
+              <br />
+              {restaurant.address.zipCity}
+            </p>
+            <ul className="mt-3 space-y-2.5 text-[14px]">
               <li>
                 <a href={restaurant.phoneHref} className="transition-colors hover:text-gold">
                   {restaurant.phoneDisplay}
@@ -78,9 +88,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 pt-6 text-[12.5px] text-cream/55 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 pt-6 text-[12.5px] text-cream/55 sm:flex-row">
           <p>© {new Date().getFullYear()} SOGUM · {restaurant.owners}</p>
-          <p>Frankfurt am Main</p>
+          <div className="flex items-center gap-5">
+            <a href="#impressum" className="transition-colors hover:text-cream">
+              Impressum
+            </a>
+            <a href="#datenschutz" className="transition-colors hover:text-cream">
+              Datenschutz
+            </a>
+            <span className="hidden sm:inline">Frankfurt am Main</span>
+          </div>
         </div>
       </div>
     </footer>

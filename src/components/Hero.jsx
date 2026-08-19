@@ -2,7 +2,7 @@ import images from '../lib/images.js'
 import { restaurant } from '../data/restaurant.js'
 import { LogoMark } from './Logo.jsx'
 import OpenBadge from './OpenBadge.jsx'
-import { CalendarCheckIcon } from './icons.jsx'
+import { CalendarCheckIcon, MapPinIcon } from './icons.jsx'
 import useParallax from '../hooks/useParallax.js'
 
 export default function Hero() {
@@ -39,11 +39,12 @@ export default function Hero() {
             {restaurant.tagline}
           </p>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-cream/75">
-            Traditionelle koreanische Gerichte, mit regionalen Zutaten neu gedacht — in einem
-            Altbau im Herzen des Nordends. Bekannt für das klare Dätschigomtang.
+            Traditionelle koreanische Gerichte, neu gedacht mit regionalen Zutaten — in einem
+            historischen Altbau im Herzen des Nordends. Bekannt für das klare Dätschigomtang,
+            unser Signature-Gericht.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-3.5">
             <a
               href={restaurant.reservationUrl}
               target="_blank"
@@ -55,9 +56,18 @@ export default function Hero() {
             </a>
             <a
               href="#speisekarte"
-              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/50 px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/50 px-6 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
             >
-              Speisekarte ansehen
+              Speisekarte
+            </a>
+            <a
+              href={restaurant.address.mapsLink}
+              target="_blank"
+              rel="noreferrer"
+              className="lift-on-hover inline-flex items-center gap-2 rounded-full border border-cream/50 px-6 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] text-cream hover:border-cream hover:bg-cream/10"
+            >
+              <MapPinIcon className="h-4 w-4 shrink-0" />
+              Anfahrt
             </a>
           </div>
 

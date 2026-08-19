@@ -2,17 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import Logo from './Logo.jsx'
 import { restaurant } from '../data/restaurant.js'
 
+// Reihenfolge entspricht bewusst der tatsächlichen Reihenfolge der
+// Sektionen auf der Seite (Über uns → Küche → Galerie → Speisekarte →
+// Besuch), damit die Navigation vorhersagbar bleibt.
 const LINKS = [
   { href: '#ueber-uns', label: 'Über uns' },
   { href: '#kueche', label: 'Küche' },
-  { href: '#speisekarte', label: 'Speisekarte' },
   { href: '#galerie', label: 'Galerie' },
+  { href: '#speisekarte', label: 'Speisekarte' },
   { href: '#besuch', label: 'Besuch' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [activeHash, setActiveHash] = useState('')
   const firstLinkRef = useRef(null)
 
   useEffect(() => {
@@ -20,6 +24,27 @@ export default function Navbar() {
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Hebt in der Navigation die Sektion hervor, die gerade im Sichtbereich
+  // ist — ein Detail, das viele Restaurant-Websites auslassen, aber sofort
+  // Orientierung beim Scrollen gibt.
+  useEffect(() => {
+    const sections = LINKS.map((l) => document.querySelector(l.href)).filter(Boolean)
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting)
+        if (visible.length > 0) {
+          const topMost = visible.reduce((a, b) => (a.boundingClientRect.top < b.boundingClientRect.top ? a : b))
+          setActiveHash(`#${topMost.target.id}`)
+        }
+      },
+      { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+    )
+    sections.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -57,16 +82,22 @@ export default function Navbar() {
         </a>
 
         <ul className={`hidden items-center gap-9 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors duration-500 lg:flex ${solid ? 'text-charcoal' : 'text-cream/90'}`}>
-          {LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`link-underline pb-1 ${solid ? 'hover:text-terracotta' : 'hover:text-gold'}`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {LINKS.map((link) => {
+            const isActive = activeHash === link.href
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  aria-current={isActive ? 'true' : undefined}
+                  className={`link-underline pb-1 ${isActive ? 'link-underline-active' : ''} ${
+                    solid ? 'hover:text-terracotta' : 'hover:text-gold'
+                  } ${isActive && solid ? 'text-terracotta' : ''} ${isActive && !solid ? 'text-gold' : ''}`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="hidden lg:block">

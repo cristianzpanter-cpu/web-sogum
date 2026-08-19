@@ -72,3 +72,8 @@ Neue Fotos: als `.webp` in `src/assets/img/` ablegen und in
 - `priceRange: "€€"` im JSON-LD (`StructuredData.jsx`) ist aus den
   Kartenpreisen abgeleitet, keine offizielle Einstufung — bei Bedarf
   anpassen.
+- **Impressum/Datenschutz** (`LegalPage.jsx`, erreichbar über `#impressum`
+  / `#datenschutz` im Footer): mit den vorliegenden echten Daten befüllt,
+  aber es fehlen eine geschäftliche E-Mail-Adresse, Rechtsform,
+  Handelsregistereintrag und USt-ID — im Text klar als offen markiert
+  und vor dem Go-Live zu ergänzen.

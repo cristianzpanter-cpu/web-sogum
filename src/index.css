@@ -139,7 +139,8 @@ button:focus-visible,
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .link-underline:hover::after,
-.link-underline:focus-visible::after {
+.link-underline:focus-visible::after,
+.link-underline-active::after {
   transform: scaleX(1);
 }
 
@@ -198,6 +199,14 @@ button:focus-visible,
 .hr-hairline {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-line) 20%, var(--color-line) 80%, transparent);
+}
+
+/* Every anchorable section/target keeps clear of the fixed header when
+   jumped to via nav links or in-page anchors (menu category chips, FAQ,
+   etc.) — without this, the fixed nav bar would cover the heading. */
+section[id],
+[data-scroll-anchor] {
+  scroll-margin-top: 5.5rem;
 }
 
 /* Custom scrollbar for a more premium feel (webkit only, progressive enhancement) */

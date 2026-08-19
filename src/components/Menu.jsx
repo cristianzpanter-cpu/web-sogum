@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import { menu, restaurant } from '../data/restaurant.js'
 
+const UMLAUT_MAP = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' }
+function slugify(title) {
+  return title
+    .toLowerCase()
+    .replace(/[äöüß]/g, (ch) => UMLAUT_MAP[ch])
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
 function FoodItem({ item }) {
   return (
     <div className="flex flex-col gap-1 border-b border-line py-5 first:pt-0 last:border-b-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
@@ -81,22 +90,40 @@ export default function Menu() {
         </div>
 
         {tab === 'speisen' && (
-          <div id="panel-speisen" role="tabpanel" aria-labelledby="tab-speisen" className="mt-14 space-y-14">
-            {menu.categories.map((category) => (
-              <div key={category.title} data-reveal className="reveal">
-                <div className="mb-1 flex items-baseline gap-3">
-                  <h3 className="font-display text-2xl text-ink">{category.title}</h3>
-                  {category.korean && <span className="text-sm text-charcoal/70">{category.korean}</span>}
+          <>
+            <div
+              data-reveal
+              className="reveal -mx-6 mt-10 flex gap-2 overflow-x-auto px-6 pb-1 [scrollbar-width:none] lg:mx-0 lg:flex-wrap lg:justify-center lg:px-0 [&::-webkit-scrollbar]:hidden"
+              aria-label="Direkt zu einer Kategorie springen"
+            >
+              {menu.categories.map((category) => (
+                <a
+                  key={category.title}
+                  href={`#${slugify(category.title)}`}
+                  className="shrink-0 whitespace-nowrap rounded-full border border-line px-4 py-2 text-[12.5px] font-medium uppercase tracking-[0.1em] text-charcoal/70 transition-colors hover:border-terracotta hover:text-terracotta"
+                >
+                  {category.title}
+                </a>
+              ))}
+            </div>
+
+            <div id="panel-speisen" role="tabpanel" aria-labelledby="tab-speisen" className="mt-10 space-y-14">
+              {menu.categories.map((category) => (
+                <div key={category.title} id={slugify(category.title)} data-scroll-anchor data-reveal className="reveal">
+                  <div className="mb-1 flex items-baseline gap-3">
+                    <h3 className="font-display text-2xl text-ink">{category.title}</h3>
+                    {category.korean && <span className="text-sm text-charcoal/70">{category.korean}</span>}
+                  </div>
+                  <div className="hr-hairline mb-2 mt-3" />
+                  <div>
+                    {category.items.map((item) => (
+                      <FoodItem key={item.name} item={item} />
+                    ))}
+                  </div>
                 </div>
-                <div className="hr-hairline mb-2 mt-3" />
-                <div>
-                  {category.items.map((item) => (
-                    <FoodItem key={item.name} item={item} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </>
         )}
 
         {tab === 'getraenke' && (
