@@ -39,7 +39,7 @@ function DishCard({ dish, delay, span }) {
 
 export default function SignatureDishes() {
   return (
-    <section id="kueche" className="bg-charcoal py-24 sm:py-32">
+    <section id="kueche" className="bg-charcoal py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div data-reveal className="reveal flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">

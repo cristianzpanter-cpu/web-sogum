@@ -48,7 +48,7 @@ export default function Gallery() {
   }, [isOpen, close, next, prev])
 
   return (
-    <section id="galerie" className="bg-cream py-24 sm:py-32">
+    <section id="galerie" className="bg-cream py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div data-reveal className="reveal max-w-xl">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-terracotta">
@@ -59,14 +59,18 @@ export default function Gallery() {
           </h2>
         </div>
 
-        <div className="mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:auto-rows-[260px]">
+        {/* Mobil: mit dem Finger deslizable Karussell (natives CSS scroll-snap,
+            keine JS-Swipe-Bibliothek nötig) — jedes Foto bekommt den vollen
+            Bildschirm, das nächste lugt am Rand hervor, um zum Weiterwischen
+            einzuladen. Ab sm: zurück zum unregelmäßigen Rasterlayout. */}
+        <div className="mt-10 -mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-14 sm:grid sm:auto-rows-[220px] sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:auto-rows-[260px] [&::-webkit-scrollbar]:hidden">
           {galleryImages.map((item, i) => (
             <button
               key={item.id}
               type="button"
               data-reveal
               onClick={() => setActiveIndex(i)}
-              className={`reveal group relative overflow-hidden rounded-sm shadow-[0_0_0_rgba(0,0,0,0)] transition-shadow duration-500 hover:z-10 hover:shadow-[0_20px_40px_-14px_rgba(0,0,0,0.4)] ${SPANS[i % SPANS.length]}`}
+              className={`reveal group relative aspect-[4/5] w-[80%] shrink-0 snap-center overflow-hidden rounded-sm shadow-[0_0_0_rgba(0,0,0,0)] transition-shadow duration-500 active:scale-[0.98] hover:z-10 hover:shadow-[0_20px_40px_-14px_rgba(0,0,0,0.4)] sm:aspect-auto sm:w-auto sm:shrink sm:snap-none sm:active:scale-100 ${SPANS[i % SPANS.length]}`}
               style={{ transitionDelay: `${(i % 4) * 90}ms` }}
               aria-label={`${item.alt} — vergrößern`}
             >
@@ -80,6 +84,9 @@ export default function Gallery() {
             </button>
           ))}
         </div>
+        <p className="mt-3 text-center text-[12px] uppercase tracking-[0.14em] text-charcoal/45 sm:hidden">
+          Zum Durchblättern wischen
+        </p>
       </div>
 
       {isOpen && (

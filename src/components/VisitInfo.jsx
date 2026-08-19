@@ -8,7 +8,7 @@ export default function VisitInfo() {
   )}&output=embed`
 
   return (
-    <section id="besuch" className="bg-charcoal py-24 sm:py-32">
+    <section id="besuch" className="bg-charcoal py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div data-reveal className="reveal max-w-xl">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-gold">

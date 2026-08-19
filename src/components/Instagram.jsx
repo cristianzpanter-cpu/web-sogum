@@ -6,7 +6,7 @@ const THUMB_KEYS = ['dish-croquettes', 'dish-galbi-table', 'dish-shrimp-cakes', 
 
 export default function InstagramBand() {
   return (
-    <section className="bg-paper py-20 sm:py-24">
+    <section className="bg-paper py-14 sm:py-24">
       <div className="mx-auto max-w-5xl px-6 text-center lg:px-10">
         <div data-reveal className="reveal">
           <InstagramIcon className="mx-auto h-7 w-7 text-terracotta" />
@@ -26,7 +26,7 @@ export default function InstagramBand() {
           </a>
         </div>
 
-        <div data-reveal className="reveal mt-12 grid grid-cols-5 gap-2.5 sm:gap-4">
+        <div className="mt-10 -mx-6 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-6 pb-1 text-left [scrollbar-width:none] sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-5 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
           {THUMB_KEYS.map((key) => {
             const alt = galleryImages.find((g) => g.image === key)?.alt ?? 'Foto aus dem SOGUM-Feed'
             return (
@@ -35,7 +35,7 @@ export default function InstagramBand() {
                 href={restaurant.instagram.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative aspect-square overflow-hidden rounded-sm"
+                className="group relative aspect-square w-24 shrink-0 snap-center overflow-hidden rounded-sm transition-transform active:scale-[0.96] sm:w-auto sm:shrink sm:active:scale-100"
               >
                 <img
                   src={images[key]}

@@ -154,7 +154,9 @@ button:focus-visible,
   box-shadow: 0 10px 24px -8px rgba(28, 22, 19, 0.35);
 }
 .lift-on-hover:active {
-  transform: translateY(-1px);
+  transform: scale(0.97);
+  box-shadow: none;
+  transition-duration: 0.12s;
 }
 
 /* Sanfte 3D-Neigung für Karten (Maus-getrieben, siehe useTilt.js) —

@@ -22,7 +22,7 @@ const PILLARS = [
 
 export default function Craft() {
   return (
-    <section className="bg-paper py-24 sm:py-32">
+    <section className="bg-paper py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div data-reveal className="reveal max-w-xl">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-terracotta">
@@ -33,19 +33,19 @@ export default function Craft() {
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:mt-14 sm:gap-y-12 sm:grid-cols-3">
           {PILLARS.map((p, i) => (
             <div
               key={p.title}
               data-reveal
-              className="reveal border-t border-line pt-7"
+              className="reveal border-t border-line pt-5 sm:pt-7"
               style={{ transitionDelay: `${i * 110}ms` }}
             >
               <p className="font-display text-4xl font-light text-terracotta sm:text-5xl">{p.stat}</p>
-              <h3 className="mt-3 text-[13px] font-medium uppercase tracking-[0.16em] text-ink">
+              <h3 className="mt-2 text-[13px] font-medium uppercase tracking-[0.16em] text-ink sm:mt-3">
                 {p.title}
               </h3>
-              <p className="mt-3 max-w-xs text-[14.5px] leading-relaxed text-charcoal/75">{p.text}</p>
+              <p className="mt-2 max-w-xs text-[14.5px] leading-relaxed text-charcoal/75 sm:mt-3">{p.text}</p>
             </div>
           ))}
         </div>

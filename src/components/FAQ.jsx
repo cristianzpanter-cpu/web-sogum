@@ -2,7 +2,7 @@ import { FAQ_ITEMS } from '../data/faq.js'
 
 export default function FAQ() {
   return (
-    <section className="bg-paper py-24 sm:py-32">
+    <section className="bg-paper py-16 sm:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div data-reveal className="reveal text-center">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-terracotta">
@@ -16,7 +16,7 @@ export default function FAQ() {
         <div data-reveal className="reveal mt-12 divide-y divide-line border-y border-line">
           {FAQ_ITEMS.map((item) => (
             <details key={item.question} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-ink marker:content-none">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-ink transition-transform duration-150 active:scale-[0.99] marker:content-none">
                 {item.question}
                 <span
                   aria-hidden="true"

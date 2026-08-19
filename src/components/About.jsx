@@ -3,7 +3,7 @@ import { restaurant } from '../data/restaurant.js'
 
 export default function About() {
   return (
-    <section id="ueber-uns" className="relative overflow-hidden bg-cream py-24 sm:py-32">
+    <section id="ueber-uns" className="relative overflow-hidden bg-cream py-16 sm:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
         <div data-reveal className="reveal lg:col-span-5 lg:col-start-1">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-terracotta">

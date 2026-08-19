@@ -2,7 +2,7 @@ import images from '../lib/images.js'
 
 export default function Experience() {
   return (
-    <section id="erlebnis" className="bg-cream py-24 sm:py-32">
+    <section id="erlebnis" className="bg-cream py-16 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div data-reveal className="reveal order-2 grid grid-cols-2 gap-4 lg:order-1 lg:col-span-6">

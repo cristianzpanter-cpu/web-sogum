@@ -15,7 +15,7 @@ function Star() {
 // (Sterne, Name, dass Fotos beigefügt waren).
 export default function Testimonial() {
   return (
-    <section className="bg-paper py-24 sm:py-32">
+    <section className="bg-paper py-16 sm:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
         <div data-reveal className="reveal flex justify-center gap-1.5 text-terracotta">
           {Array.from({ length: restaurant.googleReview.rating }).map((_, i) => (

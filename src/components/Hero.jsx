@@ -9,7 +9,7 @@ export default function Hero() {
   const parallaxRef = useParallax(0.12, 36)
 
   return (
-    <section id="top" className="relative flex h-[100svh] min-h-[680px] w-full items-end overflow-hidden bg-ink">
+    <section id="top" className="relative flex h-[94svh] min-h-[560px] w-full items-end overflow-hidden bg-ink sm:h-[100svh] sm:min-h-[680px]">
       <div ref={parallaxRef} className="absolute inset-x-0 -top-[8%] h-[116%] will-change-transform">
         <img
           src={images['facade-day']}
@@ -38,13 +38,13 @@ export default function Hero() {
           <p className="font-display mt-5 text-2xl italic text-cream/90 sm:text-3xl">
             {restaurant.tagline}
           </p>
-          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-cream/75">
+          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-cream/75 sm:mt-6">
             Traditionelle koreanische Gerichte, neu gedacht mit regionalen Zutaten — in einem
             historischen Altbau im Herzen des Nordends. Bekannt für das klare Dätschigomtang,
             unser Signature-Gericht.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3.5">
+          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-3.5">
             <a
               href={restaurant.reservationUrl}
               target="_blank"
@@ -71,7 +71,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <p className="mt-5 text-[13px] text-cream/60">
+          <p className="mt-4 text-[13px] text-cream/60 sm:mt-5">
             Lieber anrufen? Sofort erreichbar:{' '}
             <a href={restaurant.phoneHref} className="text-cream/90 underline decoration-cream/30 underline-offset-4 hover:text-gold">
               {restaurant.phoneDisplay}

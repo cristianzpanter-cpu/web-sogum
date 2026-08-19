@@ -33,7 +33,7 @@ export default function MobileReserveBar() {
         <a
           href={restaurant.phoneHref}
           tabIndex={visible ? 0 : -1}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-terracotta py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream transition-colors hover:bg-terracotta-dark"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-terracotta py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-cream transition-[background-color,transform] duration-150 hover:bg-terracotta-dark active:scale-95"
         >
           <span className="relative flex h-1.5 w-1.5 shrink-0">
             {open && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-70" />}
@@ -48,7 +48,7 @@ export default function MobileReserveBar() {
             rel="noreferrer"
             tabIndex={visible ? 0 : -1}
             aria-label="SOGUM auf WhatsApp"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-colors hover:border-terracotta hover:text-terracotta"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-[color,border-color,transform] duration-150 hover:border-terracotta hover:text-terracotta active:scale-90"
           >
             <WhatsAppIcon className="h-5 w-5" />
           </a>
@@ -59,7 +59,7 @@ export default function MobileReserveBar() {
           rel="noreferrer"
           tabIndex={visible ? 0 : -1}
           aria-label="Online reservieren"
-          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-colors hover:border-terracotta hover:text-terracotta"
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line text-charcoal transition-[color,border-color,transform] duration-150 hover:border-terracotta hover:text-terracotta active:scale-90"
         >
           <CalendarCheckIcon className="h-5 w-5" />
         </a>

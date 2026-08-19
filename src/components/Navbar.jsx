@@ -15,12 +15,35 @@ const LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
   const [activeHash, setActiveHash] = useState('')
   const firstLinkRef = useRef(null)
+  const lastY = useRef(0)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 40)
+
+      // Dynamischer Header nur auf Mobil/Tablet (< lg): beim Runterscrollen
+      // aus dem Weg, beim Hochscrollen sofort wieder da — maximiert die
+      // sichtbare Fläche für Fotos auf kleinen Bildschirmen, ohne die
+      // Desktop-Nav (immer sichtbar) zu verändern.
+      if (window.innerWidth < 1024) {
+        const delta = y - lastY.current
+        if (y < 80) {
+          setHidden(false)
+        } else if (delta > 6) {
+          setHidden(true)
+        } else if (delta < -6) {
+          setHidden(false)
+        }
+      } else {
+        setHidden(false)
+      }
+      lastY.current = y
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -68,9 +91,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,transform] duration-500 ${
         solid ? 'bg-cream/95 shadow-[0_1px_0_0_var(--color-line)] backdrop-blur-sm' : 'bg-transparent'
-      }`}
+      } ${hidden && !open ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a
@@ -118,7 +141,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`relative z-10 -mr-2.5 grid h-11 w-11 place-items-center lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
+          className={`relative z-10 -mr-2.5 grid h-11 w-11 place-items-center transition-transform duration-150 active:scale-90 lg:hidden ${solid ? 'text-ink' : 'text-cream'}`}
           aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -162,7 +185,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   tabIndex={open ? 0 : -1}
-                  className="block border-b border-line py-4 text-charcoal transition-colors hover:text-terracotta"
+                  className="block border-b border-line py-4 text-charcoal transition-[color,transform] duration-150 hover:text-terracotta active:scale-[0.98]"
                 >
                   {link.label}
                 </a>

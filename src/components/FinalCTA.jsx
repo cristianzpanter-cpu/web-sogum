@@ -4,7 +4,7 @@ import OpenBadge from './OpenBadge.jsx'
 
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-ink py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-ink py-20 sm:py-36">
       <img
         src={images['dish-galbi-table']}
         alt=""

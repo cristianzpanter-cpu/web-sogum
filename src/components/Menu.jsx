@@ -55,7 +55,7 @@ export default function Menu() {
   const [legendOpen, setLegendOpen] = useState(false)
 
   return (
-    <section id="speisekarte" className="bg-paper py-24 sm:py-32">
+    <section id="speisekarte" className="bg-paper py-16 sm:py-32">
       <div className="mx-auto max-w-4xl px-6 lg:px-10">
         <div data-reveal className="reveal text-center">
           <span className="text-[13px] font-medium uppercase tracking-[0.28em] text-terracotta">
@@ -80,7 +80,7 @@ export default function Menu() {
               aria-selected={tab === t.id}
               aria-controls={`panel-${t.id}`}
               onClick={() => setTab(t.id)}
-              className={`rounded-full px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors ${
+              className={`min-h-11 rounded-full px-6 py-3 text-[13px] font-medium uppercase tracking-[0.14em] transition-[color,background-color,transform] duration-150 active:scale-95 ${
                 tab === t.id ? 'bg-terracotta text-cream' : 'bg-transparent text-charcoal/70 hover:text-ink'
               }`}
             >
@@ -100,7 +100,7 @@ export default function Menu() {
                 <a
                   key={category.title}
                   href={`#${slugify(category.title)}`}
-                  className="shrink-0 whitespace-nowrap rounded-full border border-line px-4 py-2 text-[12.5px] font-medium uppercase tracking-[0.1em] text-charcoal/70 transition-colors hover:border-terracotta hover:text-terracotta"
+                  className="flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-line px-4 text-[12.5px] font-medium uppercase tracking-[0.1em] text-charcoal/70 transition-[color,border-color,transform] duration-150 hover:border-terracotta hover:text-terracotta active:scale-95"
                 >
                   {category.title}
                 </a>
